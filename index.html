@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="David Puig — fotógrafo. Retrato, eventos, bodas, marca personal y contenido visual en Catalunya.">
+  <title>David Puig — Fotografía</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#11110f; --paper:#f4f1ea; --muted:#79766f; --line:#d7d2c8;
+      --accent:#c46f43; --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    header{
+      position:fixed;z-index:20;top:0;left:0;right:0;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px max(20px,calc((100vw - 1180px)/2));
+      color:white;background:linear-gradient(to bottom,rgba(0,0,0,.45),transparent)
+    }
+    .brand{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.02em}
+    nav{display:flex;gap:24px;font-size:.92rem;align-items:center}
+    nav a:last-child{border:1px solid rgba(255,255,255,.75);padding:10px 15px;border-radius:99px}
+    .hero{
+      min-height:96vh;display:flex;align-items:flex-end;position:relative;color:white;
+      background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.08)),url("images/hero.jpg") center/cover
+    }
+    .hero-inner{padding:0 0 72px}
+    .eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.18em;margin-bottom:18px}
+    h1,h2,h3{font-family:"Playfair Display",serif;font-weight:500;margin:0}
+    h1{font-size:clamp(3.6rem,9vw,8rem);line-height:.87;max-width:850px}
+    .hero p{font-size:clamp(1rem,2vw,1.25rem);max-width:600px;line-height:1.6;margin:26px 0 0}
+    section{padding:110px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    h2{font-size:clamp(2.6rem,5vw,5rem);line-height:.98}
+    .section-head p{max-width:440px;color:var(--muted);line-height:1.7;margin:0}
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .shot{overflow:hidden;background:#ddd;min-height:260px}
+    .shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .shot:hover img{transform:scale(1.025)}
+    .shot:nth-child(1),.shot:nth-child(4){grid-column:span 7;height:560px}
+    .shot:nth-child(2),.shot:nth-child(3){grid-column:span 5;height:560px}
+    .shot:nth-child(5),.shot:nth-child(6){grid-column:span 6;height:430px}
+    .services{background:var(--ink);color:var(--paper)}
+    .service-list{border-top:1px solid #383835}
+    .service{display:grid;grid-template-columns:1fr 2fr;gap:20px;padding:25px 0;border-bottom:1px solid #383835}
+    .service small{color:#aaa79e;text-transform:uppercase;letter-spacing:.12em}
+    .service strong{font-family:"Playfair Display",serif;font-size:clamp(1.5rem,3vw,2.8rem);font-weight:500}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+    .about-copy p{font-size:1.15rem;line-height:1.8;color:#4f4d48}
+    .quote{font-family:"Playfair Display",serif;font-size:2.2rem;line-height:1.3;margin-top:34px}
+    .form-section{background:#e9e3d8}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+    .field{display:flex;flex-direction:column;gap:8px}
+    .field.full{grid-column:1/-1}
+    label{font-size:.85rem;font-weight:600}
+    input,select,textarea{
+      width:100%;border:0;border-bottom:1px solid #aaa398;background:transparent;
+      padding:14px 2px;font:inherit;color:var(--ink);outline:none;border-radius:0
+    }
+    textarea{min-height:120px;resize:vertical}
+    input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+    button{
+      grid-column:1/-1;border:0;background:var(--ink);color:white;padding:17px 24px;
+      font:inherit;font-weight:600;cursor:pointer;border-radius:999px;margin-top:10px
+    }
+    button:disabled{opacity:.6;cursor:wait}
+    .status{grid-column:1/-1;min-height:24px;font-size:.92rem}
+    footer{padding:48px 0;background:var(--ink);color:#c9c6bd}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-row strong{color:white}
+    @media(max-width:760px){
+      header nav a:not(:last-child){display:none}
+      .hero-inner{padding-bottom:48px}
+      section{padding:80px 0}
+      .section-head,.about-grid{display:block}
+      .section-head p{margin-top:20px}
+      .shot:nth-child(n){grid-column:1/-1;height:430px}
+      .service{grid-template-columns:1fr;gap:8px}
+      form{grid-template-columns:1fr}
+      .field.full,button,.status{grid-column:1}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#inicio">David Puig</a>
+  <nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#presupuesto">Pedir presupuesto</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Fotografía · Catalunya</div>
+      <h1>Momentos reales.<br>Imágenes que quedan.</h1>
+      <p>Fotografía de personas, eventos y marcas con una mirada natural, directa y cuidada.</p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Portfolio</h2>
+        <p>Una selección de trabajos. Sustituye estas imágenes por fotografías reales de David antes de publicar la web.</p>
+      </div>
+      <div class="gallery">
+        <div class="shot"><img src="images/gallery-1.jpg" alt="Portfolio de David Puig 1"></div>
+        <div class="shot"><img src="images/gallery-2.jpg" alt="Portfolio de David Puig 2"></div>
+        <div class="shot"><img src="images/gallery-3.jpg" alt="Portfolio de David Puig 3"></div>
+        <div class="shot"><img src="images/gallery-4.jpg" alt="Portfolio de David Puig 4"></div>
+        <div class="shot"><img src="images/gallery-5.jpg" alt="Portfolio de David Puig 5"></div>
+        <div class="shot"><img src="images/gallery-6.jpg" alt="Portfolio de David Puig 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Servicios</h2>
+        <p style="color:#aaa79e">Cuéntame qué tienes en mente. Si tu proyecto no encaja exactamente en estas categorías, también podemos plantearlo a medida.</p>
+      </div>
+      <div class="service-list">
+        <div class="service"><small>01</small><strong>Bodas & celebraciones</strong></div>
+        <div class="service"><small>02</small><strong>Eventos</strong></div>
+        <div class="service"><small>03</small><strong>Retrato & pareja</strong></div>
+        <div class="service"><small>04</small><strong>Marca personal & empresa</strong></div>
+        <div class="service"><small>05</small><strong>Producto & contenido</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="wrap about-grid">
+      <h2>David<br><em>Puig</em></h2>
+      <div class="about-copy">
+        <p>Soy fotógrafo y trabajo con personas, parejas, eventos y marcas que buscan imágenes naturales y con personalidad.</p>
+        <p>Mi objetivo es que la experiencia sea sencilla desde el primer contacto hasta la entrega final.</p>
+        <div class="quote">“La mejor fotografía es la que te devuelve exactamente a ese momento.”</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="presupuesto">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cuéntame<br>tu idea.</h2>
+        <p>Rellena el formulario. La solicitud se enviará automáticamente al sistema de David para preparar una propuesta adaptada a tu proyecto.</p>
+      </div>
+
+      <form id="quoteForm">
+        <div class="field">
+          <label for="nombre">Nombre y apellidos *</label>
+          <input id="nombre" name="nombre" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono *</label>
+          <input id="telefono" name="telefono" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="servicio">Tipo de servicio *</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Selecciona...</option>
+            <option>Boda</option><option>Evento</option><option>Sesión individual</option>
+            <option>Sesión de pareja</option><option>Sesión familiar</option><option>Embarazo</option>
+            <option>Newborn</option><option>Retrato profesional / LinkedIn</option>
+            <option>Fotografía corporativa</option><option>Fotografía inmobiliaria</option>
+            <option>Fotografía de producto</option><option>Contenido para redes sociales</option>
+            <option>Branding personal</option><option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fecha">Fecha del servicio</label>
+          <input id="fecha" name="fecha" type="date">
+        </div>
+        <div class="field">
+          <label for="ubicacion">Ubicación *</label>
+          <input id="ubicacion" name="ubicacion" required placeholder="Barcelona, Sabadell, Girona...">
+        </div>
+        <div class="field">
+          <label for="duracion">Duración aproximada *</label>
+          <select id="duracion" name="duracion" required>
+            <option value="">Selecciona...</option>
+            <option>Menos de 1 hora</option><option>1 hora</option><option>2 horas</option>
+            <option>3-4 horas</option><option>5-6 horas</option><option>7-8 horas</option>
+            <option>Más de 8 horas</option><option>No lo sé todavía</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="personas">Personas / invitados aprox.</label>
+          <input id="personas" name="personas" type="number" min="1">
+        </div>
+        <div class="field full">
+          <label for="descripcion">Cuéntanos qué necesitas *</label>
+          <textarea id="descripcion" name="descripcion" required placeholder="Describe brevemente qué tienes en mente..."></textarea>
+        </div>
+        <div class="field">
+          <label for="presupuesto">Presupuesto aproximado</label>
+          <select id="presupuesto" name="presupuesto">
+            <option value="">Prefiero no indicar</option>
+            <option>Menos de 200 €</option><option>200-400 €</option><option>400-700 €</option>
+            <option>700-1.000 €</option><option>1.000-1.500 €</option>
+            <option>1.500-2.000 €</option><option>Más de 2.000 €</option>
+            <option>No tengo un presupuesto definido</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="extras">Servicio adicional</label>
+          <select id="extras" name="extras">
+            <option>Ninguno / todavía no lo sé</option><option>Segundo fotógrafo</option>
+            <option>Drone</option><option>Vídeo</option><option>Reel para redes sociales</option>
+            <option>Álbum fotográfico</option><option>Entrega urgente</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="comentarios">Comentarios adicionales</label>
+          <textarea id="comentarios" name="comentarios" placeholder="Cualquier detalle extra que quieras añadir."></textarea>
+        </div>
+
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <button id="submitBtn" type="submit">Solicitar presupuesto</button>
+        <div class="status" id="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div><strong>David Puig</strong><br>Fotografía · Catalunya</div>
+    <div>Instagram · Email · © <span id="year"></span></div>
+  </div>
+</footer>
+
+<script>
+  // PEGA AQUÍ LA URL "Production" de tu nodo Webhook de n8n:
+  const N8N_WEBHOOK_URL = "https://TU-N8N/webhook/solicitud-fotografia";
+
+  const form = document.getElementById("quoteForm");
+  const statusEl = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // Honeypot anti-spam
+    if (data.website) return;
+    delete data.website;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+    statusEl.textContent = "";
+
+    try {
+      const response = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          ...data,
+          origen: "web-david-puig",
+          enviado_en: new Date().toISOString()
+        })
+      });
+
+      if (!response.ok) throw new Error("Error HTTP " + response.status);
+
+      form.reset();
+      statusEl.textContent = "✓ Solicitud recibida. Gracias, te contactaremos lo antes posible.";
+    } catch (error) {
+      console.error(error);
+      statusEl.textContent = "No hemos podido enviar la solicitud. Inténtalo de nuevo o contacta directamente con David.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Solicitar presupuesto";
+    }
+  });
+</script>
+</body>
+</html>
